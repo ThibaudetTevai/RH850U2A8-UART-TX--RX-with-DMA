@@ -34,7 +34,11 @@ Includes
 ***********************************************************************************************************************/
 #include "r_smc_entry.h"
 /* Start user code for include. Do not edit comment generated here */
-#define ARRAY_LENGTH 100
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+#define ARRAY_LENGTH 240
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -57,6 +61,7 @@ void user_initPguard(void);
 void user_initvar_setIoDgb(void);
 void user_initArray_tabTxData(void);
 void user_initArray_tabRxData(void);
+void user_SendUart(uint8_t* a_ptrData, uint16_t a_length);
 /* End user code. Do not edit comment generated here */
 void r_main_userinit(void);
 
@@ -76,8 +81,7 @@ void main(void)
     R_Config_SDMAC11_Start();
     R_Config_UART1_Start();
     R_Config_UART0_Start();
-    R_Config_SDMAC10_Start();
-    R_Config_UART0_Send(tabDummy, 1);
+    user_SendUart(tabTxData, ARRAY_LENGTH);
     //R_Config_UART1_Receive(tabRxData, 8);
     //D4 = 0;
     while(1)
@@ -172,8 +176,9 @@ void user_initvar_setIoDgb(void)
 
 void user_initArray_tabTxData(void)
 {
+    uint16_t i = 0;
     //** Random value to push on the MSPI
-    tabTxData[0]  = 0x3F;
+    /*tabTxData[0]  = 0x3F;
     tabTxData[1]  = 0x3C;
     tabTxData[2]  = 0x4D;
     tabTxData[3]  = 0xA1;
@@ -185,11 +190,24 @@ void user_initArray_tabTxData(void)
     tabTxData[9]  = 0xAE;
     tabTxData[10] = 0xB5;
     tabTxData[11] = 0xB3;
-    tabTxData[12] = 0xC6;
+    tabTxData[12] = 0xC6;*/
+    
+    // Remplissage du tableau avec des valeurs aléatoires
+    for (i = 0; i < ARRAY_LENGTH; i++) {
+        tabTxData[i] = (uint8_t)(rand() % 256); // Valeur entre 0 et 255
+    }
 }
 
 void user_initArray_tabRxData(void)
 {
-    memset(tabRxData, 0, ARRAY_LENGTH);
+    memset(tabRxData, 0, 2U * ARRAY_LENGTH);
+}
+
+void user_SendUart(uint8_t* a_ptrData, uint16_t a_length)
+{
+    SDMAC0.DMA0SAR_0.UINT32 = (uint32_t) &a_ptrData[1];
+    SDMAC0.DMA0TSR_0.UINT32 = a_length -1;
+    R_Config_SDMAC10_Start();
+    R_Config_UART0_Send(a_ptrData, 1);
 }
 /* End user code. Do not edit comment generated here */

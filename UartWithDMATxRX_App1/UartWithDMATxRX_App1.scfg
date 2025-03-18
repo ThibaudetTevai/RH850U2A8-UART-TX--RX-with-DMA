@@ -3988,7 +3988,7 @@
                     <item id="fixed" input="" vlaue="0"/>
                     <item id="increased" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="sourceTransactionSize" selection="8ByteUnit">
+                <option enabled="true" id="sourceTransactionSize" selection="1ByteUnit">
                     <item id="1ByteUnit" input="" vlaue="0"/>
                     <item id="2ByteUnit" input="" vlaue="0"/>
                     <item id="4ByteUnit" input="" vlaue="0"/>
@@ -4014,7 +4014,7 @@
                     <item id="64ByteUnit" input="" vlaue="0"/>
                 </option>
                 <option enabled="true" id="transferSize" selection="transferSizeValue">
-                    <item id="transferSizeValue" input="9" vlaue="9"/>
+                    <item id="transferSizeValue" input="7" vlaue="7"/>
                 </option>
                 <option enabled="true" id="requestSource" selection="HWRequestGrp0">
                     <item id="autoRequest" input="" vlaue="0"/>
@@ -4702,13 +4702,13 @@
                     <item id="64ByteUnit" input="" vlaue="0"/>
                 </option>
                 <option enabled="true" id="destinationAddress" selection="destinationAddressValue">
-                    <item id="destinationAddressValue" input="0xFE4000D0" vlaue="4265607376"/>
+                    <item id="destinationAddressValue" input="0xFE400100" vlaue="4265607424"/>
                 </option>
                 <option enabled="true" id="destinationAddressMode" selection="increased">
                     <item id="fixed" input="" vlaue="0"/>
                     <item id="increased" input="" vlaue="0"/>
                 </option>
-                <option enabled="true" id="destinationTransactionSize" selection="4ByteUnit">
+                <option enabled="true" id="destinationTransactionSize" selection="1ByteUnit">
                     <item id="1ByteUnit" input="" vlaue="0"/>
                     <item id="2ByteUnit" input="" vlaue="0"/>
                     <item id="4ByteUnit" input="" vlaue="0"/>
@@ -4718,7 +4718,7 @@
                     <item id="64ByteUnit" input="" vlaue="0"/>
                 </option>
                 <option enabled="true" id="transferSize" selection="transferSizeValue">
-                    <item id="transferSizeValue" input="4" vlaue="4"/>
+                    <item id="transferSizeValue" input="1" vlaue="1"/>
                 </option>
                 <option enabled="true" id="requestSource" selection="HWRequestGrp0">
                     <item id="autoRequest" input="" vlaue="0"/>

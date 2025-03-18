@@ -95,7 +95,6 @@ void r_Config_SDMAC10_end_interrupt(void)
     {
         SDMAC0.DMA0CHCR_0.BIT.DE = 0;
         SDMAC0.DMA0CHFCR_0.BIT.TEC = 1;
-        SDMAC0.DMA0TSR_0.UINT32 = _DMAC00_TRANSFER_SIZE;
         //SDMAC0.DMA0CHCR_0.BIT.DE = 1;
         D7 = 1;
     }

@@ -12,9 +12,8 @@
       <Path>iodefine.h</Path>
     </Files>
     <DebugOptions>
-      <DebugTool>Simulator</DebugTool>
       <ConnectSettings>
-        <MainClock>400000000</MainClock>
+        <MainClock>10000000</MainClock>
       </ConnectSettings>
       <DebugToolSettings />
     </DebugOptions>
@@ -52,7 +51,7 @@
           <Option>-library=v850e3v5\libmalloc.lib</Option>
           <Option>-list=%BuildModeName%\%ProjectName%.map</Option>
           <Option>-show=symbol,total_size</Option>
-          <Option>-start=RESET_PE0,EIINTTBL_PE0,RESET_PE1,EIINTTBL_PE1/0,.text/00020000</Option>
+          <Option>-start=RESET_PE0,EIINTTBL_PE0,RESET_PE1,EIINTTBL_PE1/0,.text/00005000</Option>
           <Option>-memory=high</Option>
           <Option>-nologo</Option>
           <Option>-END</Option>
@@ -75,13 +74,63 @@
     <BaseDirectory>UartWithDMATxRX_App1</BaseDirectory>
     <Files>
       <Path>cstart0.asm</Path>
-      <Path>main0.c</Path>
       <Path>iodefine.h</Path>
+      <Category Name="Smart Configurator">
+        <Category Name="Config_PORT">
+          <Path>src\smc_gen\Config_PORT\Config_PORT.c</Path>
+          <Path>src\smc_gen\Config_PORT\Config_PORT.h</Path>
+          <Path>src\smc_gen\Config_PORT\Config_PORT_user.c</Path>
+        </Category>
+        <Category Name="general">
+          <Path>src\smc_gen\general\r_cg_cgc.c</Path>
+          <Path>src\smc_gen\general\r_cg_cgc.h</Path>
+          <Path>src\smc_gen\general\r_cg_cgc_user.c</Path>
+          <Path>src\smc_gen\general\r_cg_intc_PE0.c</Path>
+          <Path>src\smc_gen\general\r_cg_intvector_PE0.c</Path>
+          <Path>src\smc_gen\general\r_cg_macrodriver.h</Path>
+          <Path>src\smc_gen\general\r_cg_main.c</Path>
+          <Path>src\smc_gen\general\r_cg_port.h</Path>
+          <Path>src\smc_gen\general\r_cg_systeminit.c</Path>
+          <Path>src\smc_gen\general\r_cg_userdefine.h</Path>
+          <Path>src\smc_gen\general\r_smc_entry.h</Path>
+          <Path>src\smc_gen\general\r_smc_interrupt.c</Path>
+          <Path>src\smc_gen\general\r_smc_interrupt.h</Path>
+          <Path>src\smc_gen\general\r_smc_intprg.c</Path>
+          <Path>src\smc_gen\general\r_cg_uart.h</Path>
+          <Path>src\smc_gen\general\r_cg_dma.h</Path>
+          <Path>src\smc_gen\general\r_cg_dma_common.c</Path>
+          <Path>src\smc_gen\general\r_cg_dma_common.h</Path>
+          <Path>src\smc_gen\general\r_cg_dma_common_user.c</Path>
+        </Category>
+        <Category Name="r_pincfg">
+          <Path>src\smc_gen\r_pincfg\Pin.c</Path>
+          <Path>src\smc_gen\r_pincfg\Pin.h</Path>
+        </Category>
+        <Category Name="Config_UART0">
+          <Path>src\smc_gen\Config_UART0\Config_UART0.c</Path>
+          <Path>src\smc_gen\Config_UART0\Config_UART0.h</Path>
+          <Path>src\smc_gen\Config_UART0\Config_UART0_user.c</Path>
+        </Category>
+        <Category Name="Config_UART1">
+          <Path>src\smc_gen\Config_UART1\Config_UART1.c</Path>
+          <Path>src\smc_gen\Config_UART1\Config_UART1.h</Path>
+          <Path>src\smc_gen\Config_UART1\Config_UART1_user.c</Path>
+        </Category>
+        <Category Name="Config_SDMAC10">
+          <Path>src\smc_gen\Config_SDMAC10\Config_SDMAC10.c</Path>
+          <Path>src\smc_gen\Config_SDMAC10\Config_SDMAC10.h</Path>
+          <Path>src\smc_gen\Config_SDMAC10\Config_SDMAC10_user.c</Path>
+        </Category>
+        <Category Name="Config_SDMAC11">
+          <Path>src\smc_gen\Config_SDMAC11\Config_SDMAC11.c</Path>
+          <Path>src\smc_gen\Config_SDMAC11\Config_SDMAC11.h</Path>
+          <Path>src\smc_gen\Config_SDMAC11\Config_SDMAC11_user.c</Path>
+        </Category>
+      </Category>
     </Files>
     <DebugOptions>
-      <DebugTool>Simulator</DebugTool>
       <ConnectSettings>
-        <MainClock>400000000</MainClock>
+        <MainClock>10000000</MainClock>
       </ConnectSettings>
       <DebugToolSettings />
     </DebugOptions>
@@ -90,9 +139,38 @@
       <BuildMode Name="DefaultBuild" Active="True">
         <LinkOrder>
           <Path>DefaultBuild\cstart0.obj</Path>
-          <Path>DefaultBuild\main0.obj</Path>
+          <Path>DefaultBuild\Config_PORT.obj</Path>
+          <Path>DefaultBuild\Config_PORT_user.obj</Path>
+          <Path>DefaultBuild\r_cg_cgc.obj</Path>
+          <Path>DefaultBuild\r_cg_cgc_user.obj</Path>
+          <Path>DefaultBuild\r_cg_intc_PE0.obj</Path>
+          <Path>DefaultBuild\r_cg_intvector_PE0.obj</Path>
+          <Path>DefaultBuild\r_cg_main.obj</Path>
+          <Path>DefaultBuild\r_cg_systeminit.obj</Path>
+          <Path>DefaultBuild\r_smc_interrupt.obj</Path>
+          <Path>DefaultBuild\r_smc_intprg.obj</Path>
+          <Path>DefaultBuild\Pin.obj</Path>
+          <Path>DefaultBuild\Config_UART0.obj</Path>
+          <Path>DefaultBuild\Config_UART0_user.obj</Path>
+          <Path>DefaultBuild\Config_UART1.obj</Path>
+          <Path>DefaultBuild\Config_UART1_user.obj</Path>
+          <Path>DefaultBuild\r_cg_dma_common.obj</Path>
+          <Path>DefaultBuild\r_cg_dma_common_user.obj</Path>
+          <Path>DefaultBuild\Config_SDMAC10.obj</Path>
+          <Path>DefaultBuild\Config_SDMAC10_user.obj</Path>
+          <Path>DefaultBuild\Config_SDMAC11.obj</Path>
+          <Path>DefaultBuild\Config_SDMAC11_user.obj</Path>
         </LinkOrder>
-        <CommonOptions />
+        <CommonOptions>
+          <IncludePathForC>src\smc_gen\Config_SDMAC11</IncludePathForC>
+          <IncludePathForC>src\smc_gen\Config_SDMAC10</IncludePathForC>
+          <IncludePathForC>src\smc_gen\Config_UART1</IncludePathForC>
+          <IncludePathForC>src\smc_gen\Config_UART0</IncludePathForC>
+          <IncludePathForC>src\smc_gen\r_pincfg</IncludePathForC>
+          <IncludePathForC>src\smc_gen\general</IncludePathForC>
+          <IncludePathForC>src\smc_gen\Config_PORT</IncludePathForC>
+          <IncludePathForC>.</IncludePathForC>
+        </CommonOptions>
         <GeneralOptions>
           <SimultaneouslyBuild>False</SimultaneouslyBuild>
         </GeneralOptions>
@@ -101,6 +179,14 @@
           <Option>-Xcpu=g4mh</Option>
           <Option>-g</Option>
           <Option>-g_line</Option>
+          <Option>-Isrc\smc_gen\Config_SDMAC11</Option>
+          <Option>-Isrc\smc_gen\Config_SDMAC10</Option>
+          <Option>-Isrc\smc_gen\Config_UART1</Option>
+          <Option>-Isrc\smc_gen\Config_UART0</Option>
+          <Option>-Isrc\smc_gen\r_pincfg</Option>
+          <Option>-Isrc\smc_gen\general</Option>
+          <Option>-Isrc\smc_gen\Config_PORT</Option>
+          <Option>-I.</Option>
           <Option>-Xfxu=off</Option>
           <Option>-c</Option>
         </CompileOptions>
@@ -119,7 +205,7 @@
           <Option>-library=v850e3v5\libmalloc.lib</Option>
           <Option>-list=%BuildModeName%\%ProjectName%.map</Option>
           <Option>-show=symbol,total_size</Option>
-          <Option>-start=.const,.INIT_DSEC.const,.INIT_BSEC.const,.text.cmn,.text,.data/00010000,.data.R,.bss,.stack.bss/FDE00000</Option>
+          <Option>-start=EIINTTBL_PE0.const/00000200,.const,.INIT_DSEC.const,.INIT_BSEC.const,.text.cmn,.text,.data/00010000,.data.R,.bss,.stack.bss/FDE00000,BuffTabTx.bss/FE400000,BuffTabRx.bss/FE400100</Option>
           <Option>-fsymbol=.text.cmn</Option>
           <Option>-rom=.data=.data.R</Option>
           <Option>-memory=high</Option>

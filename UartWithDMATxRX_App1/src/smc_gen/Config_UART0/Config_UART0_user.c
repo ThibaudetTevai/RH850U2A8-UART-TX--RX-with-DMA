@@ -110,12 +110,14 @@ void r_Config_UART0_interrupt_error(void)
 #pragma interrupt r_Config_UART0_interrupt_send(enable=false, channel=417, fpu=true, callt=false)
 void r_Config_UART0_interrupt_send(void)
 {
+    D15 = 1;
     if (g_uart0_tx_count > 0U)
     {
         RLN30.LUTDR.UINT16= *gp_uart0_tx_address;
         gp_uart0_tx_address++;
         g_uart0_tx_count--;
     }
+    D15 = 0;
 }
 
 /* Start user code for adding. Do not edit comment generated here */

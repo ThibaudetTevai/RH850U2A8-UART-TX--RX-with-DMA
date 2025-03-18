@@ -38,7 +38,7 @@ Includes
 #include <stdlib.h>
 #include <stdint.h>
 
-#define ARRAY_LENGTH 240
+#define ARRAY_LENGTH 10
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -52,6 +52,8 @@ uint8_t tabTxData[ARRAY_LENGTH];
 #pragma section r0_disp32 "BuffTabRx" // Section address start at 0xFE400D00
 uint8_t tabRxData[ARRAY_LENGTH];
 #pragma section default
+
+extern volatile uint32_t g_cg_sync_read;
 
 uint8_t tabDummy[1U] = {0};
 
@@ -207,6 +209,9 @@ void user_SendUart(uint8_t* a_ptrData, uint16_t a_length)
 {
     SDMAC0.DMA0SAR_0.UINT32 = (uint32_t) &a_ptrData[1];
     SDMAC0.DMA0TSR_0.UINT32 = a_length -1;
+      /* Synchronization processing */
+    g_cg_sync_read = SDMAC0.DMA0CHCR_0.UINT16;
+    __syncp();
     R_Config_SDMAC10_Start();
     R_Config_UART0_Send(a_ptrData, 1);
 }

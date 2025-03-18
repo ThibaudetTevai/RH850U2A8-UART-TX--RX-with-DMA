@@ -55,6 +55,6 @@ Thumbs.db
 *.txt
 DefaultBuild/*
 UartWithDMATxRX_App1/DefaultBuild/*
-UartWithDMATxRX_App1/DefaultBuild/*
+UartWithDMATxRX_App2/DefaultBuild/*
 *.mtud
 trash/*

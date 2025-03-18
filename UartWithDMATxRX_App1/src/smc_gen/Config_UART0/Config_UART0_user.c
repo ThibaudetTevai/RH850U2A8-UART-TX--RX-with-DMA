@@ -62,6 +62,7 @@ void r_Config_UART0_callback_error(uint32_t err_type);
 void R_Config_UART0_Create_UserInit(void)
 {
     /* Start user code for user init. Do not edit comment generated here */
+    RLN30.LUOR1.BIT.UTIGTS = 1;
     /* End user code. Do not edit comment generated here */
 }
 

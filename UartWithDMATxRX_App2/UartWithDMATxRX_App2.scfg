@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<smc>
+  <general version="2.0.0.0">
+    <configuration active="true" id="com.renesas.smc.toolchain.ccrh.configuration.release">
+      <property id="com.renesas.smc.service.project.buildArtefactType" values="com.renesas.smc.service.project.buildArtefactType.exe" />
+      <property id="com.renesas.smc.service.project.buildType" values="com.renesas.smc.service.project.buildType.release" />
+      <toolchain id="com.renesas.smc.toolchain.ccrh.toolchain.ccrh">
+        <option id="com.renesas.smc.toolchain.option.buildArtefactType" key="com.renesas.smc.toolchain.option.buildArtefactType.exe" />
+        <option id="com.renesas.smc.toolchain.option.rtos" key="com.renesas.smc.toolchain.option.rtos.none" />
+      </toolchain>
+    </configuration>
+    <platform id="R7F702301B" />
+  </general>
+</smc>

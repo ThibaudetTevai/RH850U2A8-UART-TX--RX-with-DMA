@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<MicomToolCommonProjectFile Version="1.00">
+  <CreatorType Name="CubeSuite+" Version="V8.13.00  [05 Dec 2024]" />
+  <Placeholders>
+    <PlaceholderPrefix>%</PlaceholderPrefix>
+    <PlaceholderPostfix>%</PlaceholderPostfix>
+  </Placeholders>
+  <Project Name="UartWithDMATxRX" Type="Application">
+    <Files>
+      <Path>boot0.asm</Path>
+      <Path>boot1.asm</Path>
+      <Path>iodefine.h</Path>
+    </Files>
+    <DebugOptions>
+      <DebugTool>Simulator</DebugTool>
+      <ConnectSettings>
+        <MainClock>400000000</MainClock>
+      </ConnectSettings>
+      <DebugToolSettings />
+    </DebugOptions>
+    <Device Series="RH850">R7F702301B</Device>
+    <BuildOptions Name="CC-RH" Version="V2.07.00">
+      <BuildMode Name="DefaultBuild" Active="True">
+        <LinkOrder>
+          <Path>DefaultBuild\boot0.obj</Path>
+          <Path>DefaultBuild\boot1.obj</Path>
+        </LinkOrder>
+        <CommonOptions />
+        <GeneralOptions>
+          <SimultaneouslyBuild>False</SimultaneouslyBuild>
+        </GeneralOptions>
+        <CompileOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-g_line</Option>
+          <Option>-Xfxu=off</Option>
+          <Option>-c</Option>
+        </CompileOptions>
+        <AssembleOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-c</Option>
+        </AssembleOptions>
+        <LinkOptions>
+          <Option>-debug</Option>
+          <Option>-nocompress</Option>
+          <Option>-NOOPtimize</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-library=v850e3v5\rhf8n.lib</Option>
+          <Option>-library=v850e3v5\libmalloc.lib</Option>
+          <Option>-list=%BuildModeName%\%ProjectName%.map</Option>
+          <Option>-show=symbol,total_size</Option>
+          <Option>-start=RESET_PE0,EIINTTBL_PE0,RESET_PE1,EIINTTBL_PE1/0,.text/00020000</Option>
+          <Option>-memory=high</Option>
+          <Option>-nologo</Option>
+          <Option>-END</Option>
+          <Option>-Input=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.mot</Option>
+          <Option>-form=stype</Option>
+          <Option>-EXIt</Option>
+        </LinkOptions>
+        <IOHeaderGenerationOptions>
+          <Option>"-df=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RH850\Devicefile\DR7F702301B.DVF"</Option>
+          <Option>-o=C:\Users\Tev\Documents\UartWithDMATxRX\iodefine.h</Option>
+          <Option>-def=off</Option>
+          <Option>-f</Option>
+          <UpdateIOMode>None</UpdateIOMode>
+        </IOHeaderGenerationOptions>
+      </BuildMode>
+    </BuildOptions>
+  </Project>
+  <Subproject Name="UartWithDMATxRX_App1" Type="Application">
+    <BaseDirectory>UartWithDMATxRX_App1</BaseDirectory>
+    <Files>
+      <Path>cstart0.asm</Path>
+      <Path>main0.c</Path>
+      <Path>iodefine.h</Path>
+    </Files>
+    <DebugOptions>
+      <DebugTool>Simulator</DebugTool>
+      <ConnectSettings>
+        <MainClock>400000000</MainClock>
+      </ConnectSettings>
+      <DebugToolSettings />
+    </DebugOptions>
+    <Device Series="RH850">R7F702301B</Device>
+    <BuildOptions Name="CC-RH" Version="V2.07.00">
+      <BuildMode Name="DefaultBuild" Active="True">
+        <LinkOrder>
+          <Path>DefaultBuild\cstart0.obj</Path>
+          <Path>DefaultBuild\main0.obj</Path>
+        </LinkOrder>
+        <CommonOptions />
+        <GeneralOptions>
+          <SimultaneouslyBuild>False</SimultaneouslyBuild>
+        </GeneralOptions>
+        <CompileOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-g_line</Option>
+          <Option>-Xfxu=off</Option>
+          <Option>-c</Option>
+        </CompileOptions>
+        <AssembleOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-c</Option>
+        </AssembleOptions>
+        <LinkOptions>
+          <Option>-debug</Option>
+          <Option>-nocompress</Option>
+          <Option>-NOOPtimize</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-library=v850e3v5\rhf8n.lib</Option>
+          <Option>-library=v850e3v5\libmalloc.lib</Option>
+          <Option>-list=%BuildModeName%\%ProjectName%.map</Option>
+          <Option>-show=symbol,total_size</Option>
+          <Option>-start=.const,.INIT_DSEC.const,.INIT_BSEC.const,.text.cmn,.text,.data/00010000,.data.R,.bss,.stack.bss/FDE00000</Option>
+          <Option>-fsymbol=.text.cmn</Option>
+          <Option>-rom=.data=.data.R</Option>
+          <Option>-memory=high</Option>
+          <Option>-nologo</Option>
+          <Option>-END</Option>
+          <Option>-Input=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.mot</Option>
+          <Option>-form=stype</Option>
+          <Option>-EXIt</Option>
+        </LinkOptions>
+        <IOHeaderGenerationOptions>
+          <Option>"-df=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RH850\Devicefile\DR7F702301B.DVF"</Option>
+          <Option>-o=C:\Users\Tev\Documents\UartWithDMATxRX\UartWithDMATxRX_App1\iodefine.h</Option>
+          <Option>-def=off</Option>
+          <Option>-f</Option>
+          <UpdateIOMode>None</UpdateIOMode>
+        </IOHeaderGenerationOptions>
+      </BuildMode>
+    </BuildOptions>
+    <Extension_SmcCodePartRH850>
+      <CodeGeneratorData></CodeGeneratorData>
+      <GenerateFileFolder>C:\Users\Tev\Documents\UartWithDMATxRX\UartWithDMATxRX_App1</GenerateFileFolder>
+      <SCFGFile>UartWithDMATxRX_App1.scfg</SCFGFile>
+      <SmcExePath>C:\Program Files (x86)\Renesas Electronics\SmartConfigurator\RH850\eclipse\SmartConfigurator.exe</SmcExePath>
+      <CodeGeneratorFilesGuid>7f3c309f-cf91-4dd3-8fdc-d182ed7fb59e</CodeGeneratorFilesGuid>
+    </Extension_SmcCodePartRH850>
+  </Subproject>
+  <Subproject Name="UartWithDMATxRX_App2" Type="Application">
+    <BaseDirectory>UartWithDMATxRX_App2</BaseDirectory>
+    <Files>
+      <Path>cstart1.asm</Path>
+      <Path>main1.c</Path>
+      <Path>iodefine.h</Path>
+    </Files>
+    <DebugOptions>
+      <DebugTool>Simulator</DebugTool>
+      <ConnectSettings>
+        <MainClock>400000000</MainClock>
+      </ConnectSettings>
+      <DebugToolSettings />
+    </DebugOptions>
+    <Device Series="RH850">R7F702301B</Device>
+    <BuildOptions Name="CC-RH" Version="V2.07.00">
+      <BuildMode Name="DefaultBuild" Active="True">
+        <LinkOrder>
+          <Path>DefaultBuild\cstart1.obj</Path>
+          <Path>DefaultBuild\main1.obj</Path>
+        </LinkOrder>
+        <CommonOptions />
+        <GeneralOptions>
+          <SimultaneouslyBuild>False</SimultaneouslyBuild>
+        </GeneralOptions>
+        <CompileOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-g_line</Option>
+          <Option>-Xfxu=off</Option>
+          <Option>-c</Option>
+        </CompileOptions>
+        <AssembleOptions>
+          <Option>-Xobj_path=%BuildModeName%</Option>
+          <Option>-Xcpu=g4mh</Option>
+          <Option>-g</Option>
+          <Option>-c</Option>
+        </AssembleOptions>
+        <LinkOptions>
+          <Option>-debug</Option>
+          <Option>-nocompress</Option>
+          <Option>-NOOPtimize</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-library=v850e3v5\rhf8n.lib</Option>
+          <Option>-library=v850e3v5\libmalloc.lib</Option>
+          <Option>-list=%BuildModeName%\%ProjectName%.map</Option>
+          <Option>-show=symbol,total_size</Option>
+          <Option>-start=.const,.INIT_DSEC.const,.INIT_BSEC.const,.text.cmn,.text,.data/00011000,.data.R,.bss,.stack.bss/FDE00000</Option>
+          <Option>-fsymbol=.text.cmn</Option>
+          <Option>-rom=.data=.data.R</Option>
+          <Option>-memory=high</Option>
+          <Option>-nologo</Option>
+          <Option>-END</Option>
+          <Option>-Input=%BuildModeName%\%ProjectName%.abs</Option>
+          <Option>-output=%BuildModeName%\%ProjectName%.mot</Option>
+          <Option>-form=stype</Option>
+          <Option>-EXIt</Option>
+        </LinkOptions>
+        <IOHeaderGenerationOptions>
+          <Option>"-df=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RH850\Devicefile\DR7F702301B.DVF"</Option>
+          <Option>-o=C:\Users\Tev\Documents\UartWithDMATxRX\UartWithDMATxRX_App2\iodefine.h</Option>
+          <Option>-def=off</Option>
+          <Option>-f</Option>
+          <UpdateIOMode>None</UpdateIOMode>
+        </IOHeaderGenerationOptions>
+      </BuildMode>
+    </BuildOptions>
+    <Extension_SmcCodePartRH850>
+      <CodeGeneratorData></CodeGeneratorData>
+      <GenerateFileFolder>C:\Users\Tev\Documents\UartWithDMATxRX\UartWithDMATxRX_App2</GenerateFileFolder>
+      <SCFGFile>UartWithDMATxRX_App2.scfg</SCFGFile>
+      <SmcExePath>C:\Program Files (x86)\Renesas Electronics\SmartConfigurator\RH850\eclipse\SmartConfigurator.exe</SmcExePath>
+      <CodeGeneratorFilesGuid>0c48b1a8-49de-4d4a-a876-d31f7b24bdee</CodeGeneratorFilesGuid>
+    </Extension_SmcCodePartRH850>
+  </Subproject>
+</MicomToolCommonProjectFile>
